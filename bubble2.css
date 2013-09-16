@@ -1,0 +1,37 @@
+.ui-widget { font-size: .8em; }
+input.text { margin-bottom:8px; padding: .4em; }
+input.long { width:230px; }
+input.med { width:230px; }
+fieldset { padding:0; border:0; margin-top:10px; }
+h1 { font-size: 1.2em; margin: .6em 0; }
+div.activities-contain { width: 600px; margin: 20px 0; }
+div.activities-contain table { margin: 1em 0; border-collapse: collapse; width: 100%; }
+div.activities-contain table td, div#activities-contain table th { border: 1px solid #eee; padding: .6em 10px; text-align: left; }
+.ui-dialog .ui-state-error { padding: .3em; }
+.validateTips { border: 1px solid transparent; padding: 0.3em; font-style: italic; text-align: center; }
+
+#dialog-form label, #dialog-form input {display: block;}
+
+tr.myact:hover { background-color: #003147; }
+
+
+input:focus, input.ui-state-error:focus {
+	border-color: #0B93D5;
+}
+
+#tabs {width: 660px; margin: 0 auto;}
+body {background-color: black; width: 100%; padding: 10px;}
+#dprint {margin: 10px;}
+
+tr.ui-highlight td {
+	color: black;
+}
+
+
+input.gray {
+	background-color: #EEEEEE;
+}
+
+tr.neutral {
+	background-color: #2A444F;
+}

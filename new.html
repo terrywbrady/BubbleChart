@@ -1,0 +1,129 @@
+<html>
+<head>
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.18/jquery-ui.min.js"></script>
+<script type="text/javascript" src="https://www.google.com/jsapi"></script>
+<script src="activity.js"></script>
+<script src="actForm.js"></script>
+<script src="rankForm.js"></script>
+<script src="app.js"></script>
+<script src="chart.js"></script>
+<script type="text/javascript">
+	google.load("visualization", "1", {
+		packages : [ "corechart" ]
+	});
+	//google.setOnLoadCallback(drawChart);
+</script>
+
+
+<link rel="stylesheet" href="dark-hive/jquery-ui-1.8.21.custom.css"
+	type="text/css" media="all" />
+<link rel="stylesheet" href="jquery.tooltip.css" type="text/css"
+	media="all" />
+<link rel="stylesheet" href="bubble2.css" type="text/css" media="all" />
+</head>
+<body>
+
+	<div id="tabs">
+		<h3 id="h0">
+			<a href="#">Introduction</a>
+		</h3>
+		<div id="tabs-0">
+			<div>This tool is designed to offer you a new perspective on
+				your weekly activities, which may generate fresh insights for you as
+				you think about your highest priorities and the options available to
+				you.</div>
+			<br/>
+			<div>Begin by thinking about all the activities that you spend
+				an hour or more performing each week. Then, below, enter a name for
+				each one and the number of hours you estimate you spend per week.
+				You will see that additional tabs appear, asking you to rank each
+				activity in terms of how necessary (obligatory, required, or
+				unavoidable) the activity is, then how fulfilling (rewarding,
+				enjoyable, or energizing) it is. Your data will then be presented in
+				simple graphic format to assist your analysis and reflection.</div>
+			<br/>
+			<div>
+				<em>For best results, please use Firefox, Chrome or Safari if
+					available.</em>
+			</div>
+		</div>
+		<h3 id="h1">
+			<a href="#">1. List the activities that you perform on a weekly
+				basis<br/><em>Examples: Office work, physical fitness, commuting, household chores</em></a>
+		</h3>
+		<div id="tabs-1">
+			<div class="actdemo">
+				<div class="activities-contain" class="ui-widget">
+					<h2>Add an activity you perform most weeks:</h2>
+					<div id="add-form" title="Add an activity">
+						<fieldset>
+							<label for="name">Activity Name</label> <input type="text"
+								name="name" id="a_name"
+								class="med text ui-widget-content ui-corner-all" /> <label
+								for="hours">Hours Per Week</label> <input type="text"
+								maxlength="4" size="4" name="hours" id="a_hours" value=""
+								class="short text ui-widget-content ui-corner-all" />
+							<button id="create-activity" type="button">Add</button>
+						</fieldset>
+					</div>
+					<div class="validateTips"></div>
+					<h2>Your Weekly Activities:</h2>
+					<div id="act-table"></div>
+					<button id="edit-activity">Edit activity</button>
+					<button id="remove-activity">Remove activity</button>
+				</div>
+
+			</div>
+		</div>
+		<h3 id="h1a">
+			<a href="#">2. Review your week at a glance</a>
+		</h3>
+		<div id="tabs-1a">
+			<div id="actchart"></div>
+		</div>
+		<h3 id="h2">
+			<a href="#">3. Rank your Activities by Necessity</a>
+		</h3>
+		<div id="tabs-2">
+			<div class="activities-contain" class="ui-widget">
+				<div id="necess-table"></div>
+			</div>
+		</div>
+		<h3 id="h3">
+			<a href="#">4. Rank your Activities by Fulfillment</a>
+		</h3>
+		<div id="tabs-3">
+			<div class="activities-contain" class="ui-widget">
+				<div id="fulfill-table"></div>
+			</div>
+		</div>
+		<h3 id="h4">
+			<a href="#">5. Review Your Necessity and Fulfillment Chart</a>
+		</h3>
+		<div id="tabs-4">
+			<div id="rpt1">
+				<div id="chart_div"></div>
+				<div>
+					<button id="ie">Click here if the chart does not display
+						above.</button>
+				</div>
+			</div>
+		</div>
+		<h3 id="h5">
+			<a href="#">6. Generate Your Weekly Activity Summary Report</a>
+		</h3>
+		<div id="tabs-5">
+			<div id="dprint">Create a summary report. This report will open
+				in a new window.</div>
+			<div>
+				<button id="print">Create</button>
+			</div>
+		</div>
+
+	</div>
+
+</body>
+</html>

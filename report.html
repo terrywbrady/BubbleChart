@@ -1,0 +1,41 @@
+<html>
+  <head>
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+<script type="text/javascript" src="https://www.google.com/jsapi"></script>
+<script src="activity.js"></script>
+<script src="chart.js"></script>
+<script type="text/javascript">
+	google.load("visualization", "1", {
+		packages : [ "corechart" ]
+	});
+	//google.setOnLoadCallback(drawChart);
+</script>
+    <script type="text/javascript">
+
+      $(document).ready(function(){
+          initFromParam(parseParam());  
+          activityList.drawTable(true);
+          drawChart("chart_div","white");
+    	  $("#rpt").append('<a href="new.html?data='+activityList.serialize()+'">Open & Bookmark Your Selections</a>');    	  
+      })
+	</script>
+	<style>
+	#summact th {text-align: left; }
+	#summact {border-collapse: collapse; width: 240px; background-color: white;}
+	#summact td, #summact th {border: thin black solid; font-size: 10px;}
+	#summary-chart, #act-summary {	margin: 5px;	float: left;}
+	</style>
+  </head>
+  <body>
+		  <div id="rpt">
+		  <div>
+		  <div id="chart_div" style="width: 600px; height: 500px;"></div>
+		  </div>
+		  <div id="act-summary"></div>
+		  <div id="pie-summary"/>
+		  <div style="clear: both"/>zzz
+		  </div>
+    
+  </body>
+</html>

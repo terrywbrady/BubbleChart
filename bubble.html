@@ -1,0 +1,19 @@
+<html>
+  <head>
+	<script	src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.18/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    <script type="text/javascript" src="activity.js"></script>
+    <script type="text/javascript" src="chart.js"></script>
+    <script type="text/javascript">
+      var drawStandaloneChart = function() {
+    	drawChart("chart_div","white"); 
+      }
+      initFromParam(parseParam());  
+      google.load("visualization", "1", {packages:["corechart"]});
+      google.setOnLoadCallback(drawStandaloneChart);
+	</script>
+  </head>
+  <body>
+    <div id="chart_div" style="width: 600px; height: 500px;"></div>
+  </body>
+</html>
