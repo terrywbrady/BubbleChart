@@ -1,5 +1,11 @@
 function ActivityForm() {
 	this.selectedActivity = null;
+	for(key in localStorage) {
+	    var re = /^activity_(.*)/;
+	    if (!re.test(key)) continue;
+	    var grp = re.exec(key);
+        activityList.addActivity(grp[1], localStorage[key]);
+	}
 }
 
 ActivityForm.prototype.createDialogForm = function(activity) {
@@ -12,7 +18,7 @@ ActivityForm.prototype.createDialogForm = function(activity) {
 				.append('<label for="name">Activity Name</label>')
 				.append('<input type="text" name="name" id="name" class="long text ui-widget-content ui-corner-all" /> ')
 				.append('<label for="hours">Hours Per Week</label>')
-				.append('<input type="text" maxlength="4" size="4" name="hours" id="hours" value="" class="short text ui-widget-content ui-corner-all" />')
+				.append('<input type="number" maxlength="4" size="4" name="hours" id="hours" value="" class="short text ui-widget-content ui-corner-all" />')
 		)
 	)
 	.append('<div class="validateTips">Both fields are required.</div>');
@@ -38,6 +44,9 @@ var updateActivity = function() {
 	bValid = bValid && checkRegexp( name, /^.*\S+.*$/, "Please enter an activity name" );
 
 	if ( bValid ) {
+	    localStorage.removeItem('activity_'+activityForm.selectedActivity.name);
+	    localStorage['activity_'+name.val()] = hours.val();
+
 		activityForm.selectedActivity.setName(name.val());
 		activityForm.selectedActivity.hours = Number(hours.val());
 		activityList.drawTable(false);
@@ -56,6 +65,7 @@ function addActivity() {
 	bValid = bValid && checkRegexp( name, /^.*\S+.*$/, "Please enter an activity name" );
 
 	if ( bValid ) {
+	    localStorage['activity_'+name.val()] = hours.val();
 		activityList.addActivity(name.val(), hours.val());
 		$("#a_name").val("").focus();
 		$("#a_hours").val("");
@@ -125,6 +135,7 @@ $(function() {
 	});
 	$( "#remove-activity" )
 	.button().click(function() {
+	    localStorage.removeItem('activity_'+activityForm.selectedActivity.name);
 		activityList.remove(activityForm.selectedActivity);
 		activityList.drawTable(false);
 	});

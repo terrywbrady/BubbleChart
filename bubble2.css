@@ -1,4 +1,5 @@
 .ui-widget { font-size: .8em; }
+input.short{width: 70px;}
 input.text { margin-bottom:8px; padding: .4em; }
 input.long { width:230px; }
 input.med { width:230px; }
