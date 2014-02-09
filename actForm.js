@@ -1,3 +1,7 @@
+var activityList;
+var activityForm;
+var tips;
+
 function ActivityForm() {
 	this.selectedActivity = null;
 }
@@ -12,17 +16,17 @@ ActivityForm.prototype.createDialogForm = function(activity) {
 				.append('<label for="name">Activity Name</label>')
 				.append('<input type="text" name="name" id="name" class="long text ui-widget-content ui-corner-all" /> ')
 				.append('<label for="hours">Hours Per Week</label>')
-				.append('<input type="text" maxlength="4" size="4" name="hours" id="hours" value="" class="short text ui-widget-content ui-corner-all" />')
+				.append('<input type="number" maxlength="4" size="4" name="hours" id="hours" value="" class="short text ui-widget-content ui-corner-all" />')
 		)
 	)
 	.append('<div class="validateTips">Both fields are required.</div>');
-	if (activity != null) { 
+	if (activity !== null) { 
 		df.attr("title", "Update Weekly Activity");
 		df.find("#name").val(activity.name);
 		df.find("#hours").val(activity.hours);
 	}
 	return df;
-}
+};
 
 function getAllFields() {
 	return $("#name, #hours");
@@ -40,6 +44,7 @@ var updateActivity = function() {
 	if ( bValid ) {
 		activityForm.selectedActivity.setName(name.val());
 		activityForm.selectedActivity.hours = Number(hours.val());
+		activityList.save();
 		activityList.drawTable(false);
 		$( this ).dialog( "close" );
 	}

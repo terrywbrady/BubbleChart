@@ -1,3 +1,5 @@
+//comment goes here...
+
 function getActivityArray() {
     var arr = new Array(activityList.list.length+1);
     arr[0] = ['Activity', 'X', 'Y', 'Activity', 'Hours'];
