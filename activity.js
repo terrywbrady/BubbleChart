@@ -12,6 +12,7 @@ function Activity() {
 }
 
 function initFromStorage() {
+	if (!('bubbleChart' in localStorage)) return;
 	var pList = JSON.parse(localStorage.bubbleChart);
 	for(var i=0; i < pList.list.length; i++) {
 		var pAct = pList.list[i];
