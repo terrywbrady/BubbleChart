@@ -1,11 +1,9 @@
+var activityList;
+var activityForm;
+var tips;
+
 function ActivityForm() {
 	this.selectedActivity = null;
-	for(key in localStorage) {
-	    var re = /^activity_(.*)/;
-	    if (!re.test(key)) continue;
-	    var grp = re.exec(key);
-        activityList.addActivity(grp[1], localStorage[key]);
-	}
 }
 
 ActivityForm.prototype.createDialogForm = function(activity) {
@@ -22,13 +20,13 @@ ActivityForm.prototype.createDialogForm = function(activity) {
 		)
 	)
 	.append('<div class="validateTips">Both fields are required.</div>');
-	if (activity != null) { 
+	if (activity !== null) { 
 		df.attr("title", "Update Weekly Activity");
 		df.find("#name").val(activity.name);
 		df.find("#hours").val(activity.hours);
 	}
 	return df;
-}
+};
 
 function getAllFields() {
 	return $("#name, #hours");
@@ -44,11 +42,9 @@ var updateActivity = function() {
 	bValid = bValid && checkRegexp( name, /^.*\S+.*$/, "Please enter an activity name" );
 
 	if ( bValid ) {
-	    localStorage.removeItem('activity_'+activityForm.selectedActivity.name);
-	    localStorage['activity_'+name.val()] = hours.val();
-
 		activityForm.selectedActivity.setName(name.val());
 		activityForm.selectedActivity.hours = Number(hours.val());
+		activityList.save();
 		activityList.drawTable(false);
 		$( this ).dialog( "close" );
 	}
@@ -65,7 +61,6 @@ function addActivity() {
 	bValid = bValid && checkRegexp( name, /^.*\S+.*$/, "Please enter an activity name" );
 
 	if ( bValid ) {
-	    localStorage['activity_'+name.val()] = hours.val();
 		activityList.addActivity(name.val(), hours.val());
 		$("#a_name").val("").focus();
 		$("#a_hours").val("");
@@ -135,7 +130,6 @@ $(function() {
 	});
 	$( "#remove-activity" )
 	.button().click(function() {
-	    localStorage.removeItem('activity_'+activityForm.selectedActivity.name);
 		activityList.remove(activityForm.selectedActivity);
 		activityList.drawTable(false);
 	});

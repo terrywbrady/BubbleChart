@@ -1,4 +1,5 @@
-//comment goes here
+var activityList;
+var rankDelay = 500;
 
 function rankGetRow(n) {
 	return $(n).parents("tr");
@@ -19,10 +20,9 @@ function rankGetNeutral(n) {
 function rankGetBottom(n) {
 	return rankGetTable(n).find("tr.rank-bottom");
 }
- var rankDelay = 500;
 
 function rankTop(n) {
-	r = rankGetRow(n);
+	var r = rankGetRow(n);
 	r.fadeOut(rankDelay, function() {
 		r.insertAfter(rankGetTop(n));
 		r.addClass("myact-r");
@@ -85,7 +85,7 @@ function updateRank(n) {
 	neut.prevAll().each(function(i) {
 		var id = $(this).find("input[name=id]").val();
 		var activity = activityList.findItem(id);
-		if (activity != null) {
+		if (activity !== null) {
 			activity.set(field, -i-1);
 		}
 	});
@@ -93,11 +93,12 @@ function updateRank(n) {
 	bott.nextAll().each(function(i) {
 		var id = $(this).find("input[name=id]").val();
 		var activity = activityList.findItem(id);
-		if (activity != null) {
+		if (activity !== null) {
 			activity.set(field, i+1);
 		}
 	});
 	
+	activityList.save();
 	if (activityList.checkNeutral()) drawChart("chart_div","gray");
 }
 
