@@ -6,5 +6,5 @@ new.html -> Captures Information
 bubble.html -> standalone chart
 report.html -> final report
 
-You can preview the application at http://rawgithub.com/terrywbrady/BubbleChart/master/new.html
+You can preview the application at https://terrywbrady.github.io/BubbleChart/new.html
 
