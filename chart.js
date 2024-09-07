@@ -42,7 +42,7 @@ function drawChart(div, bg) {
 		maxY = Math.max(maxY, y);
 	}
 	
-	var data = new google.visualization.arrayToDataTable(arr);
+	var data = google.visualization.arrayToDataTable(arr);
 	var options = {
 			backgroundColor: bg,
 			title : 'Activity Analysis',
@@ -75,7 +75,7 @@ function drawChart(div, bg) {
 			width: 560
 		};
 
-		var chart = new google.visualization.BubbleChart(document
+		var chart = google.visualization.BubbleChart(document
 				.getElementById(div));
 		chart.draw(data, options);
 }
@@ -89,7 +89,7 @@ function drawReportWindow() {
 
 function drawPie(div) {
 	var arr = getPieArray();
-	var data = new google.visualization.arrayToDataTable(arr);
+	var data = google.visualization.arrayToDataTable(arr);
 
 	var options = {
 		backgroundColor: "gray",
@@ -97,21 +97,21 @@ function drawPie(div) {
 		width : 500
 	};
 
-	var chart = new google.visualization.PieChart(document
+	var chart = google.visualization.PieChart(document
 			.getElementById(div));
 	chart.draw(data, options);
 }
 
 function drawPieSummary(div) {
 	var arr = getPieArray();
-	var data = new google.visualization.arrayToDataTable(arr);
+	var data = google.visualization.arrayToDataTable(arr);
 
 	var options = {
 		title : 'Activies by hours of the week',
 		width: 300
 	};
 
-	var chart = new google.visualization.PieChart(document
+	var chart = google.visualization.PieChart(document
 			.getElementById(div));
 	chart.draw(data, options);
 }
