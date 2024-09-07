@@ -42,7 +42,7 @@ function drawChart(div, bg) {
 		maxY = Math.max(maxY, y);
 	}
 	
-	var data = google.visualization.arrayToDataTable(arr);
+	var data = new google.visualization.DataTable(); data.addRows(arr);
 	var options = {
 			backgroundColor: bg,
 			title : 'Activity Analysis',
@@ -89,7 +89,7 @@ function drawReportWindow() {
 
 function drawPie(div) {
 	var arr = getPieArray();
-	var data = google.visualization.arrayToDataTable(arr);
+	var data = new google.visualization.DataTable(); data.addRows(arr);
 
 	var options = {
 		backgroundColor: "gray",
@@ -104,7 +104,7 @@ function drawPie(div) {
 
 function drawPieSummary(div) {
 	var arr = getPieArray();
-	var data = google.visualization.arrayToDataTable(arr);
+	var data = new google.visualization.DataTable(); data.addRows(arr);
 
 	var options = {
 		title : 'Activies by hours of the week',
